@@ -6,12 +6,14 @@ import './Home.css'
 export default function Home() {
     const { user, isAuthenticated } = useAuth0();
     const [userName , setUserName] = useState("Guest");
+    const [picture , setPicture] = useState("");
 
     useEffect(()=>{
         if(isAuthenticated){
             setUserName(user.given_name);
+            setPicture(user.picture);
         }
-    },[isAuthenticated])
+    },[isAuthenticated,])
     console.log(user)
 
   return (
@@ -32,8 +34,11 @@ export default function Home() {
             </div>
             </div>
             
-            {/* {isAuthenticated ? setUserName(user.name) : setUserName("Guest")} */}
-            <div className="profile">{userName}</div>
+            <div className="right">
+                <div className="name">{userName}</div>
+                <div className="picture">{picture && <img src={picture} alt="Profile" className="profile-img" />}</div>
+            </div>
+            
         </div>
 
         <div className="content-container">
