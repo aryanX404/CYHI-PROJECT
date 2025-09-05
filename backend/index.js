@@ -3,6 +3,7 @@ const dotenv = require('dotenv')
 const cors = require('cors')
 const connectDB = require('./config/db')
 dotenv.config()
+const ItemFoundRouter = require('./routes/itemFound')
 
 const app = express()
 connectDB()
@@ -11,6 +12,8 @@ connectDB()
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:true}));
+
+app.use('/', ItemFoundRouter)
 
 
 app.listen(process.env.PORT, ()=>{

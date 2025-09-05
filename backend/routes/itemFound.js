@@ -1,11 +1,18 @@
-import express from "express";
-import Item from "../models/itemfound.js";
+const express = require('express')
+const Item = require("../models/itemfound");
 const router = express.Router();
+const multer = require("multer");
+
+const upload = multer({ dest: "uploads/" });
 
 
-router.post("/founditem", async (req, res) => {
+router.post("/itemfound", upload.single("photo"),async (req, res) => {
+
+    console.log("Received request to add found item:", req.body);
+    console.log("File info:", req.file);
   try {
-    const { category, location, date, description, hiddenDetails, photo } = req.body;
+    const { category, location, date, description, hiddenDetails } = req.body;
+    const photo = req.file ? req.file.path : null;
 
     // Create new found item
     const newItem = new Item({
@@ -35,4 +42,4 @@ router.post("/founditem", async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

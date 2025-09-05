@@ -1,11 +1,11 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const itemFoundSchema = new mongoose.Schema({
   
   category: {
     type: String,
     required: true,
-    enum: ["Wallet", "Phone", "Bag", "Keys", "Card", "Other"] // optional enum
+    // enum: ["Wallet", "Phone", "Bag", "Keys", "Card", "Other"] 
   },
   location: {
     type: String,
@@ -39,4 +39,6 @@ const itemFoundSchema = new mongoose.Schema({
   }
 }, { timestamps: true });
 
-export default mongoose.model("ItemFound", itemFoundSchema);
+const FoundItem = mongoose.model("itemfound", itemFoundSchema);
+
+module.exports = FoundItem;
