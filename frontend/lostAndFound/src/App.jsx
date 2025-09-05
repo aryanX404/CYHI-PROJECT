@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Routes, Route } from "react-router-dom";
 import LoginButton from './pages/login'
-import Home from './components/home'
+import Home from './components/Home'
 import Dashboard from './pages/dashboard'
-import MyItems from './pages/myItems'  
+import LostItem from './pages/lostitem'
 import PostItem from './pages/postItem'
 import MyClaims from './pages/myClaims'
 
@@ -21,7 +21,7 @@ function App() {
 
         <Route path="dashboard" element={<Dashboard/>} />
         <Route path="postItem" element={<PostItem/>} />
-        <Route path="myItems" element={<MyItems/>} />
+        <Route path="lostitem" element={<LostItem/>} />
         <Route path="myClaims" element={<MyClaims/>} />
 
       </Route>

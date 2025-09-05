@@ -1,11 +1,12 @@
 const express = require('express')
 const Item = require("../models/itemfound");
 const router = express.Router();
+const handleLostItem = require('../controllers/handleItemFound.js');
 const multer = require("multer");
 
 const upload = multer({ dest: "uploads/" });
 
-
+router.post("/lostitem", upload.single("photo"),handleLostItem)
 router.post("/itemfound", upload.single("photo"),async (req, res) => {
 
     console.log("Received request to add found item:", req.body);
