@@ -17,7 +17,9 @@ async function verifyClaim(req, res) {
         return res.status(404).json({ message: "Item not found" });
       }
 
-    const actualDetails = item.hiddenDetails || "";
+    const actualDetails = {category:item.category,
+      
+    };
 
     return res.json({
       actualDetails,
