@@ -6,6 +6,7 @@ import Dashboard from './pages/dashboard'
 import LostItem from './pages/lostitem'
 import PostItem from './pages/postItem'
 import MyClaims from './pages/myClaims'
+import Claims from './pages/claims'
 
 
 import './App.css'
@@ -22,7 +23,8 @@ function App() {
         <Route path="dashboard" element={<Dashboard/>} />
         <Route path="postItem" element={<PostItem/>} />
         <Route path="lostitem" element={<LostItem/>} />
-        <Route path="myClaims" element={<MyClaims/>} />
+        <Route path="claims" element={<Claims/>} />
+        <Route path="myClaims/:id" element={<MyClaims/>} />
 
       </Route>
       {/* <Route path="/login" element={<LoginButton />} /> */}

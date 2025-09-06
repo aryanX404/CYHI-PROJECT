@@ -1,8 +1,10 @@
 import React, { useState, useRef } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import "./postItem.css";
 import axios from "axios";
 
 export default function PostItem() {
+  const { user, isAuthenticated } = useAuth0();
   const [item, setItem] = useState({
     category: "",
     location: "",
@@ -11,6 +13,8 @@ export default function PostItem() {
     hiddenDetails: "",
     photo: null,
     preview: null,
+    foundBy: null,
+    foundBy:{user}
   });
   const[message, setMessage] = useState('')
 
@@ -42,6 +46,7 @@ export default function PostItem() {
       formData.append("date", item.date);
       formData.append("description", item.description);
       formData.append("hiddenDetails", item.hiddenDetails);
+      formData.append("foundBy", JSON.stringify(item.foundBy));
       if (item.photo) formData.append("photo", item.photo);
 
       const res = await axios.post("http://localhost:8000/itemfound", formData, {

@@ -36,6 +36,10 @@ const itemLostSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     default: null
+  },
+  lostBy:{
+    type:Object,
+    required:true
   }
 }, { timestamps: true });
 

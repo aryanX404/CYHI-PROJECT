@@ -36,7 +36,12 @@ const itemFoundSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     default: null
+  },
+  foundBy:{
+    type:Object,
+    required:true
   }
+  
 }, { timestamps: true });
 
 const FoundItem = mongoose.model("itemfound", itemFoundSchema);

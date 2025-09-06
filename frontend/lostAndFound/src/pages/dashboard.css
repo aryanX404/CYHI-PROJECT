@@ -1,0 +1,55 @@
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    /* border: 1px solid white; */
+}
+
+h1{
+    margin: 32px 0px;    
+    text-align: center;
+    color: white;
+}
+
+.item-card{
+    margin: 0px auto;
+    border: 1px solid #cccccc47;
+    border-Radius: 8px;
+    padding: 16px;
+    width: 600px;
+    margin-bottom: 20px;
+    /* height: 500px; */
+    box-Shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.item-card img{
+    border: 1px silod white;
+    width: 100%;
+    height: 400px;
+    object-Fit: cover; 
+    border-Radius: 4px;
+    padding-bottom: 20px;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter{
+    background-color: rgb(47, 47, 47);
+    color: white;
+    width: 1200px;
+    display: block;
+}
+
+h3 , p{
+    color: white;
+}
+
+.claim-btn{
+    background-color: #23471a;
+    color: #fff;
+}
