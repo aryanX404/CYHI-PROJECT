@@ -28,10 +28,10 @@ export default function Home() {
             </div>
             <div className="left-nav">
                 <NavLink to='dashboard' className="nav-item">Dashboard</NavLink>
+                <NavLink to='claims'className="nav-item">Claims</NavLink>
                 <NavLink to='postItem' className="nav-item">Found Item</NavLink>
                 <NavLink to='lostitem' className="nav-item">Lost Item</NavLink>
-                <NavLink to='claims'className="nav-item">Claims</NavLink>
-                <NavLink to='myClaims'className="nav-item">My claims</NavLink>
+                {/* <NavLink to='myClaims'className="nav-item">My claims</NavLink> */}
             </div>
             </div>
             

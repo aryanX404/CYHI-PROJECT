@@ -24,7 +24,7 @@ function App() {
         <Route path="postItem" element={<PostItem/>} />
         <Route path="lostitem" element={<LostItem/>} />
         <Route path="claims" element={<Claims/>} />
-        <Route path="myClaims/:id" element={<MyClaims/>} />
+        {/* <Route path="myClaims/:id" element={<MyClaims/>} /> */}
 
       </Route>
       {/* <Route path="/login" element={<LoginButton />} /> */}
