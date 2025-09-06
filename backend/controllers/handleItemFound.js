@@ -15,7 +15,6 @@ async function handleLostItem(req, res) {
     console.log("File info:", req.file);
   try {
     let lostBy = null;
-
     if (req.body.lostBy) {
       // Convert string back to object
       lostBy = JSON.parse(req.body.lostBy);
@@ -52,6 +51,46 @@ async function handleLostItem(req, res) {
   }
 };
 
+async function handleFoundItem(req,res){
+    console.log("Received request to add found item:", req.body);
+    console.log("File info:", req.file);
+  try {
+    let foundBy = null;
+    if (req.body.foundBy) {
+      // Convert string back to object
+      foundBy = JSON.parse(req.body.foundBy);
+    }
+    const { category, location, date, description, hiddenDetails } = req.body;
+    const photo = req.file ? `uploads/${req.file.filename}` : null;
+
+    // Create new found item
+    const newItemFound = new FoundItem({
+      category,
+      location,
+      date,
+      description,
+      hiddenDetails,
+      photo,  
+      foundBy,    // optional
+      claimed: false,
+      claimedBy: null
+    });
+
+    const savedItem = await newItemFound.save();
+    res.status(201).json({
+      success: true,
+      message: "Lost item added successfully",
+      data: savedItem
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      message: "Error adding found item",
+      error: error.message
+    });
+  }
+};
 
 async function handleGetFoundItems(req, res) {
   try{
@@ -60,17 +99,6 @@ async function handleGetFoundItems(req, res) {
   }catch(err){
     res.status(500).json({ error: 'Server error' });  
   }
-}
-
-async function handleGetItemById(req, res){
-    try {
-      const item = await FoundItem.findById({});
-      if (!item) return res.status(404).json({ success: false, message: "No items" });
-      const claimedItems = item.map
-      res.status(200).json(item);
-    } catch (err) {
-      res.status(500).json({ success: false, message: "Server error" });
-    }
 }
 
 async function handleClaim(req, res) {
@@ -131,4 +159,4 @@ async function handleClaim(req, res) {
 
 
 
-module.exports = {  handleLostItem, handleGetFoundItems, handleGetItemById, handleClaim};
+module.exports = {  handleLostItem, handleGetFoundItems,  handleClaim, handleFoundItem};
