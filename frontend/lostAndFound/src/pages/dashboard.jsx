@@ -73,7 +73,7 @@ export default function Dashboard() {
               )}
               {!item.claimed ? (
                 <button
-                  onClick={() => navigate(`/claims`)}
+                  onClick={() => navigate(`/verify/${item._id}`)}
                   className="claim-btn"
                 >
                   Claim

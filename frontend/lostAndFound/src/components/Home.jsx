@@ -31,7 +31,7 @@ export default function Home() {
                 <NavLink to='claims'className="nav-item">Claims</NavLink>
                 <NavLink to='postItem' className="nav-item">Found Item</NavLink>
                 <NavLink to='lostitem' className="nav-item">Lost Item</NavLink>
-                {/* <NavLink to='myClaims'className="nav-item">My claims</NavLink> */}
+           
             </div>
             </div>
             
